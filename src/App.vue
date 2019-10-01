@@ -1,36 +1,43 @@
 <template>
-  <v-app>
-    <v-app-bar app>
+  <v-app dark>
+    <v-app-bar dark app color="primary">
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>THE UNUSUAL SUSPECTS</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+      Week {{ currentWeek }}
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <Dashboard :currentWeek="currentWeek" />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Axios from "axios";
+import Dashboard from "./components/Dashboard";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld,
+    Dashboard
   },
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      currentWeek: 0
+    };
+  },
+  async created() {
+    try {
+      const { data } = await Axios.get(
+        "https://feeds.nfl.com/feeds-rs/scores.json"
+      );
+      this.currentWeek = data.week;
+    } catch (e) {
+      // eslint-disable-next-line
+      console.log(e)
+    }
+  }
 };
 </script>
