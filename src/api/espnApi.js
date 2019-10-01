@@ -1,20 +1,3 @@
-// const express = require("express");
-// const cors = require("cors");
-// const { Client } = require("espn-fantasy-football-api/node-dev");
-// const port = 5000;
-// const api = new Client({ leagueId: 94370193 });
-
-// const app = express();
-// app.use(cors());
-
-// app.get("/best-worst/:week", async (req, res) => {
-//   res.json(await getBestAndWorstTeams(api, Number(req.params.week)));
-// });
-// app.get("/scores/:week", async (req, res) => {
-//   res.json(await getScores(api, Number(req.params.week)));
-// });
-// app.listen("5000", () => console.log(`listening on port ${port}`));
-
 export async function getBestAndWorstTeams(api, week) {
   const scores = await api.getBoxscoreForWeek({
     seasonId: 2019,
