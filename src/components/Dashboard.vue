@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import Axios from "axios";
 import HighlightCard from "./HighlightCard";
 import Scoreboard from "./Scoreboard";
 import { Client } from "espn-fantasy-football-api";
