@@ -1,16 +1,16 @@
 <template>
   <v-container>
-    <v-layout>
-      <v-col xs="12" lg="6">
+    <v-row wrap>
+      <v-col cols="12" xs="12" lg="6">
         <highlight-card titleText="Champ" :team="winningTeam" />
       </v-col>
-      <v-col xs="12" lg="6">
+      <v-col cols="12" xs="12" lg="6">
         <highlight-card titleText="Chump" :team="losingTeam" />
       </v-col>
-    </v-layout>
-    <v-layout>
+    </v-row>
+    <v-row>
       <Scoreboard />
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
