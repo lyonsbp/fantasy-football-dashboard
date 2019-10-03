@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-layout>
-      <v-col cols="6">
+      <v-col cols="6" small="12" large="6">
         <highlight-card titleText="Champ" :team="winningTeam" />
       </v-col>
-      <v-col cols="6">
+      <v-col cols="6" small="12" large="6">
         <highlight-card titleText="Chump" :team="losingTeam" />
       </v-col>
     </v-layout>
