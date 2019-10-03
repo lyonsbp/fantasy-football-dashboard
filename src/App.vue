@@ -5,7 +5,16 @@
         <span>THE UNUSUAL SUSPECTS</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      Week {{ currentWeek }}
+      <v-menu>
+        <template v-slot:activator="{ on }">
+          <span v-on="on">Week {{ currentWeek }}</span>
+        </template>
+        <v-list>
+          <v-list-item v-for="i in 16" :key="i" @click="currentWeek = i">
+            <v-list-item-title>{{ i }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
