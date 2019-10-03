@@ -33,7 +33,7 @@ export default {
       const { data } = await Axios.get(
         "https://feeds.nfl.com/feeds-rs/scores.json"
       );
-      this.currentWeek = data.week;
+      this.currentWeek = data.week - 1;
     } catch (e) {
       // eslint-disable-next-line
       console.log(e)
